@@ -1,0 +1,120 @@
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(135deg, #ff4e88, #ff99cc);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial;
+  overflow: hidden;
+}
+
+.container {
+  text-align: center;
+}
+
+/* HEART */
+.heart {
+  width: 120px;
+  height: 120px;
+  background: red;
+  position: relative;
+  transform: rotate(-45deg);
+  cursor: pointer;
+}
+
+.heart::before,
+.heart::after {
+  content: "";
+  width: 120px;
+  height: 120px;
+  background: red;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.heart::before {
+  top: -60px;
+  left: 0;
+}
+
+.heart::after {
+  left: 60px;
+  top: 0;
+}
+
+/* LETTER */
+.letter {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  width: 300px;
+  margin-top: 30px;
+}
+
+.hidden {
+  display: none;
+}
+
+.buttons {
+  margin-top: 15px;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  margin: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* MEMORY PAGE */
+.memory-page {
+  background: black;
+  display: block;
+  overflow: hidden;
+}
+
+.memory-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+.memory-img {
+  position: absolute;
+  max-width: 600px;  /* хамгийн их өргөн */
+  height: auto; 
+  animation: fall 24s linear forwards;
+}
+
+.memory-img:nth-child(1) { left: 20%; animation-delay: 0s; }
+.memory-img:nth-child(2) { left: 50%; animation-delay: 1s; }
+.memory-img:nth-child(3) { left: 75%; animation-delay: 2s; }
+
+@keyframes fall {
+  0% { top: -200px; opacity: 0; }
+  20% { opacity: 1; }
+  100% { top: 100vh; opacity: 0; }
+}
+
+/* FINAL MESSAGE */
+.final {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 48px;
+  color: white;
+  text-align: center;
+  opacity: 0;
+  animation: glow 180s forwards;
+}
+
+@keyframes glow {
+  to {
+    opacity: 1;
+    text-shadow: 0 0 20px pink;
+  }
+}
